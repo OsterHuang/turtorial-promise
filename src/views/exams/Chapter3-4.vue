@@ -2,9 +2,10 @@
   <article>
     <h1>{{ meta.name }} {{ meta.title }}</h1>
     <div class="quiz">
-      一起increaseFirst, increaseSecond, increaseThird <br>
-      當 increaseFirst出錯時，如何先向下執行 popupMessage
-      <button class="btn-try" @click="case3_1">Run Case 3-1</button>
+      依序執行increaseFirst, increaseSecond, increaseThird <br>
+      當 increaseFirst出錯時，還是要執行完increaseSecond, increaseThird，<br>
+      待其執行結束後，再執行 popupMessage<br>
+      <button class="btn-try" @click="case3_4">Run Case 3-4</button>
     </div>
   </article>
 </template>
@@ -24,10 +25,18 @@ export default {
     }
   },
   methods: {
-    case3_1() {
+    case3_4() {
+      // TODO 修改這邊讓其流程可以跟命題一樣
       this.increaseFirst()
-      this.increaseSecond()
-      this.increaseThird()
+        .then(() => {
+          return this.increaseSecond()
+        })
+        .then(() => {
+          return this.increaseThird()
+        })
+        .then(() => {
+          this.popupMessage()
+        })
     },
     // ----
     // 不可修改以下的method
@@ -35,12 +44,13 @@ export default {
     increaseFirst() {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          reject(new Error('Are you sure?'))
+          console.log('this.first: I am error.....')
+          reject('Are you sure?')
         }, 1000)
       })
     },
     increaseSecond() {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           this.second += 2
           console.log('this.second: ', this.second)
@@ -49,7 +59,7 @@ export default {
       })
     },
     increaseThird() {
-      return new Promise(resolve => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           this.third += 3
           console.log('this.third: ', this.third)
@@ -58,7 +68,7 @@ export default {
       })
     },
     popupMessage() {
-      alert('是不是出錯了啊？')
+      alert('是不是執行完了啊？')
     }
   }
 }

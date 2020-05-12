@@ -2,9 +2,11 @@
   <article>
     <h1>{{ meta.name }} {{ meta.title }}</h1>
     <div class="quiz">
-      一起increaseFirst, increaseSecond, increaseThird <br>
-      當 increaseFirst出錯時，如何先向下執行 popupMessage
-      <button class="btn-try" @click="case3_1">Run Case 3-1</button>
+      使用(async, await)來同時執從 increaseFirst, increaseSecond, increaseThird <br>
+      若發生錯誤則直接執行，先等其他執行結束後再執行 popupMessage<br>
+      <button class="btn-try" @click="case4_2">Run Case 4-2</button><br>
+      <br>
+      <b>再回頭看4-1</b>
     </div>
   </article>
 </template>
@@ -24,7 +26,7 @@ export default {
     }
   },
   methods: {
-    case3_1() {
+    async case4_2() {
       this.increaseFirst()
       this.increaseSecond()
       this.increaseThird()
@@ -32,15 +34,21 @@ export default {
     // ----
     // 不可修改以下的method
     // ----
-    increaseFirst() {
-      return new Promise((resolve, reject) => {
+    async increaseFirst() {
+      await new Promise((resolve, reject) => {
         setTimeout(() => {
-          reject(new Error('Are you sure?'))
+          console.log('this.first: ', this.first)
+          reject('Something wrong while increasing the first')
         }, 1000)
+        // setTimeout(() => {
+        //   this.first += 1
+        //   console.log('this.first: ', this.first)
+        //   resolve()
+        // }, 1000)
       })
     },
-    increaseSecond() {
-      return new Promise(resolve => {
+    async increaseSecond() {
+      await new Promise(resolve => {
         setTimeout(() => {
           this.second += 2
           console.log('this.second: ', this.second)
@@ -48,8 +56,8 @@ export default {
         }, 2000)
       })
     },
-    increaseThird() {
-      return new Promise(resolve => {
+    async increaseThird() {
+      await new Promise(resolve => {
         setTimeout(() => {
           this.third += 3
           console.log('this.third: ', this.third)
@@ -58,7 +66,7 @@ export default {
       })
     },
     popupMessage() {
-      alert('是不是出錯了啊？')
+      alert('曾經發生錯誤啦~~~')
     }
   }
 }

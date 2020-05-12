@@ -2,9 +2,9 @@
   <article>
     <h1>{{ meta.name }} {{ meta.title }}</h1>
     <div class="quiz">
-      一起increaseFirst, increaseSecond, increaseThird <br>
-      當 increaseFirst出錯時，如何先向下執行 popupMessage
-      <button class="btn-try" @click="case3_1">Run Case 3-1</button>
+      使用(async, await)來依序執 increaseFirst, increaseSecond, increaseThird <br>
+      都執從結束後再執行 popupMessage<br>
+      <button class="btn-try" @click="case4_0">Run Case 4-0</button>
     </div>
   </article>
 </template>
@@ -24,7 +24,7 @@ export default {
     }
   },
   methods: {
-    case3_1() {
+    async case4_0() {
       this.increaseFirst()
       this.increaseSecond()
       this.increaseThird()
@@ -35,7 +35,9 @@ export default {
     increaseFirst() {
       return new Promise((resolve, reject) => {
         setTimeout(() => {
-          reject(new Error('Are you sure?'))
+          this.first += 1
+          console.log('this.first: ', this.first)
+          resolve()
         }, 1000)
       })
     },
@@ -58,7 +60,7 @@ export default {
       })
     },
     popupMessage() {
-      alert('是不是出錯了啊？')
+      alert('是不是執行完了啊？')
     }
   }
 }

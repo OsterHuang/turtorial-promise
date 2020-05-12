@@ -17,14 +17,14 @@
 </template>
 
 <script>
-import { allChapter } from "@/router/exams";
+import { allChapter } from '@/router/exams'
 
 export default {
-  name: "App",
+  name: 'App',
   data() {
-    return { allChapter, isExpanded: false };
+    return { allChapter, isExpanded: false }
   }
-};
+}
 </script>
 
 <style lang="sass">
@@ -52,6 +52,8 @@ div
   .nav-left
     flex: 1;
     height: 80px;
+    padding-left: 30px;
+    text-align: left;
     overflow-y: scroll;
     &.expanded
       height: 100%;
@@ -72,4 +74,11 @@ div
 
     .router-link-exact-active
       color: #42b983;
+
+article
+  .btn-try
+    padding: 8px;
+    border: 2px solid #777;
+    border-radius: 12px;
+    margin-top: 6px;
 </style>

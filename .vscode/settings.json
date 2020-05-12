@@ -1,0 +1,28 @@
+{
+  "eslint.enable": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "eslint.options": {
+    "configFile": ".eslintrc.js"
+  },
+  "path-intellisense.mappings": {
+    "/": "${workspaceRoot}",
+    "@": "${workspaceRoot}/src"
+  },
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "stylelintIntegration": true,
+      "eslintIntegration": true,
+      "tabWidth": 2
+    }
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}

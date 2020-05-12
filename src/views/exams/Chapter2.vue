@@ -3,9 +3,9 @@
     <h1>{{ meta.name }} {{ meta.title }}</h1>
     <div class="quiz">
       依序執行increaseFirst, increaseSecond, increaseThird, increaseFirst,
-      increaseSecond, increaseThird<br />
-      如何解決callback地獄？<br />
-      <button @click="case2">Run Case 2</button>
+      increaseSecond, increaseThird<br>
+      如何解決callback地獄？<br>
+      <button class="btn-try" @click="case2">Run Case 2</button>
     </div>
   </article>
 </template>
@@ -17,49 +17,49 @@ export default {
       first: 0,
       second: 1,
       third: 2
-    };
+    }
   },
   computed: {
     meta() {
-      return this.$route.meta;
+      return this.$route.meta
     }
   },
   methods: {
     case2() {
       setTimeout(() => {
-        this.increaseFirst();
+        this.increaseFirst()
         setTimeout(() => {
-          this.increaseSecond();
+          this.increaseSecond()
           setTimeout(() => {
-            this.increaseThird();
+            this.increaseThird()
             setTimeout(() => {
-              this.increaseFirst();
+              this.increaseFirst()
               setTimeout(() => {
-                this.increaseSecond();
+                this.increaseSecond()
                 setTimeout(() => {
-                  this.increaseThird();
-                }, 1500);
-              }, 1200);
-            }, 1000);
-          }, 1500);
-        }, 1200);
-      }, 1000);
+                  this.increaseThird()
+                }, 1500)
+              }, 1200)
+            }, 1000)
+          }, 1500)
+        }, 1200)
+      }, 1000)
     },
     // ----
     // 不可修改以下的method
     // ----
     increaseFirst() {
-      this.first += 1;
-      console.log("this.first: ", this.first);
+      this.first += 1
+      console.log('this.first: ', this.first)
     },
     increaseSecond() {
-      this.second += 2;
-      console.log("this.second: ", this.second);
+      this.second += 2
+      console.log('this.second: ', this.second)
     },
     increaseThird() {
-      this.third += 3;
-      console.log("this.third: ", this.third);
+      this.third += 3
+      console.log('this.third: ', this.third)
     }
   }
-};
+}
 </script>
