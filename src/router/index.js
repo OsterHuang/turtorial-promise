@@ -1,22 +1,22 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-import exams from "./exams";
-import Home from "../views/Home.vue";
+import exams from './exams'
+import Home from '../views/Home.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home
   },
   ...exams
-];
+]
 
 const router = new VueRouter({
   routes
-});
+})
 
-export default router;
+export default router
