@@ -29,56 +29,56 @@ export default {
 
 <style lang="sass">
 div
-  box-sizing: border-box;
+  box-sizing: border-box
 
 .promise-exams
   .quiz
-    color: #444;
-    padding: 16px;
-    margin-top: 24px;
-    border: 1px solid #888;
+    color: #444
+    padding: 16px
+    margin-top: 24px
+    border: 1px solid #888
 
 #app
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  font-family: Avenir, Helvetica, Arial, sans-serif
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  text-align: center
+  color: #2c3e50
 
 #nav
-  display: flex;
-  padding: 20px;
+  display: flex
+  padding: 20px
 
   .nav-left
-    flex: 1;
-    height: 80px;
-    padding-left: 30px;
-    text-align: left;
-    overflow-y: scroll;
+    flex: 1
+    height: 80px
+    padding-left: 30px
+    text-align: left
+    overflow-y: scroll
     &.expanded
-      height: 100%;
+      height: 100%
   .nav-right
-    border: 1px solid #666;
+    border: 1px solid #666
     &:hover
-      cursor: pointer;
+      cursor: pointer
 
   .link
-    display: block;
-    line-height: 30px;
+    display: block
+    line-height: 30px
     a
-      font-weight: bold;
-      color: #2c3e50;
+      font-weight: bold
+      color: #2c3e50
 
     &::after
       content: ' | '
 
     .router-link-exact-active
-      color: #42b983;
+      color: #42b983
 
 article
   .btn-try
-    padding: 8px;
-    border: 2px solid #777;
-    border-radius: 12px;
-    margin-top: 6px;
+    padding: 8px
+    border: 2px solid #777
+    border-radius: 12px
+    margin-top: 6px
 </style>
